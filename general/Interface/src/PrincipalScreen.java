@@ -1,48 +1,64 @@
 package general.Interface.src;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
+//todas as variaveis utilizadas com nome padrao
 public class PrincipalScreen extends JDialog {
     private JPanel principal;
-    private JButton buttonGerar;
-    private JPanel PainelBotao;
-    private JPanel PainelLateral;
-    private JPanel Suport;
-    private JTextArea escrevertexto;
-    private JTextPane textPane1;
+    private JPanel panelPlay;
+    private JPanel panelLateral;
+    private JTextArea writeText;
+    private JButton playButton;
+    private JButton exitMusicButton;
+    private JButton pauseButton;
+    private JProgressBar progressBar1;
+    private JTextField titleTextField;
+    private JButton questionButton;
+    private JButton volumeDownButton;
+    private JButton volumeUpButton;
+    private JButton generateButton;
+    private JTextPane showGenerateMusic;
 
     public JPanel getPrincipal() {
         return principal;
     }
-
+//ativando o botao gerar
     public PrincipalScreen() {
         setContentPane(principal);
         setModal(true);
-        getRootPane().setDefaultButton(buttonGerar);
-
-        buttonGerar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
-
-
-
-        // call onCancel() when cross is clicked
+        getRootPane().setDefaultButton(generateButton);
+//        gerar.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                onOK();
+//
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
+            /*  public void windowClosing(WindowEvent e) {
+            onCancel();
+        }*/
+    });
+
+    // call onCancel() on ESCAPE
+        principal.registerKeyboardAction(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            onCancel();
+        }
+    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        questionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                QuestionScreen screen = new QuestionScreen();
+                frame.setContentPane(screen.getQuestionPanel());
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setMinimumSize(new Dimension(800, 600));
+                frame.pack();
+                frame.setTitle("Trabalho TCP ");
+                frame.setVisible(true);
             }
         });
-
-        // call onCancel() on ESCAPE
-        principal.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     private void onOK() {
@@ -63,6 +79,13 @@ public class PrincipalScreen extends JDialog {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here 
+        // TODO: place custom component creation code here
     }
 }
+
+
+
+
+
+
+
