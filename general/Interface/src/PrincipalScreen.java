@@ -59,6 +59,13 @@ public class PrincipalScreen extends JDialog {
                 frame.setVisible(true);
             }
         });
+        generateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               String userContent =writeText.getText();
+                // titleTextField.setText(userContent); only para aparecer no TÍTULO
+            }
+        });
     }
 
     private void onOK() {
