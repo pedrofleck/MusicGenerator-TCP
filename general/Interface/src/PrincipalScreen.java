@@ -1,5 +1,7 @@
 package general.Interface.src;
 
+import general.Interface.src.components.Window;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -48,15 +50,8 @@ public class PrincipalScreen extends JDialog {
     }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         questionButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame();
-                QuestionScreen screen = new QuestionScreen();
-                frame.setContentPane(screen.getQuestionPanel());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setMinimumSize(new Dimension(800, 600));
-                frame.pack();
-                frame.setTitle("Trabalho TCP ");
-                frame.setVisible(true);
+            public void actionPerformed(ActionEvent e){
+                new Window(new QuestionScreen());
             }
         });
         generateButton.addActionListener(new ActionListener() {
