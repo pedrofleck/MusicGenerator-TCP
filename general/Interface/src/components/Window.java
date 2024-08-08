@@ -6,8 +6,18 @@ import java.awt.event.KeyEvent;
 
 public class Window extends JFrame{
 
-    public Window(JPanel panel){
-        setContentPane(panel);
+    private final JPanel panel;
+    private final Color color;
+
+    public Window(JPanel panel, Color color){
+        this.panel = panel;
+        this.color = color;
+        this.config();
+    }
+
+    private void config(){
+        setBackground(this.color);
+        setContentPane(this.panel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fechar apenas esta janela
         setLocationByPlatform(true); // Sistema encontra a melhor posição inicial
         setMinimumSize(new Dimension(800, 600));
@@ -21,5 +31,4 @@ public class Window extends JFrame{
         pack();
         setVisible(true);
     }
-
 }

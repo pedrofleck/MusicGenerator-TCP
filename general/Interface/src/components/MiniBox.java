@@ -18,7 +18,7 @@ public class MiniBox extends JLabel {
 
     private void config(){
         setBackground(this.color);
-        setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3)); // Espaçamento interno
+        setBorder(BorderFactory.createLineBorder(Color.BLACK, 1)); // Adiciona uma borda de 1px preta
         setHorizontalAlignment(SwingConstants.CENTER); // Alinhamento do texto à esquerda
         setOpaque(true); // Necessário para exibir a cor de fundo
         setPreferredSize(dimension);

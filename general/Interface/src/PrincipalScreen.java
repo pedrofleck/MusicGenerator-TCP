@@ -51,7 +51,7 @@ public class PrincipalScreen extends JDialog {
         questionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                new Window(new QuestionScreen());
+                new Window(new QuestionScreen(), new Color(0xd9d9d9));
             }
         });
         generateButton.addActionListener(new ActionListener() {
