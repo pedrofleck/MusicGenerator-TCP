@@ -1,4 +1,4 @@
-package general.Interface.src;
+package general.Interface.src.screens;
 
 import general.Interface.src.assets.InstructionsList;
 import general.Interface.src.components.ListBox;

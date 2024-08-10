@@ -8,10 +8,12 @@ public class Window extends JFrame{
 
     private final JPanel panel;
     private final Color color;
+    private final String title;
 
-    public Window(JPanel panel, Color color){
+    public Window(JPanel panel, Color color, String title){
         this.panel = panel;
         this.color = color;
+        this.title = title;
         this.config();
     }
 
@@ -22,7 +24,7 @@ public class Window extends JFrame{
         setLocationByPlatform(true); // Sistema encontra a melhor posição inicial
         setMinimumSize(new Dimension(800, 600));
         setResizable(false); // Bloqueio de redimensionamento da tela
-        setTitle("Music Generator - Ajuda");
+        setTitle(this.title);
         getRootPane().registerKeyboardAction( // Fechar a janela pelo ESC
                 e -> dispose(),
                 KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),

@@ -1,6 +1,7 @@
 package general.Interface.src;
 
 import general.Interface.src.components.Window;
+import general.Interface.src.screens.QuestionScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,7 +52,7 @@ public class PrincipalScreen extends JDialog {
         questionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                new Window(new QuestionScreen(), new Color(0xd9d9d9));
+                new Window(new QuestionScreen(), new Color(0xd9d9d9), "Music Generator - Ajuda");
             }
         });
         generateButton.addActionListener(new ActionListener() {
