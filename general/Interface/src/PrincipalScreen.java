@@ -1,5 +1,6 @@
 package general.Interface.src;
 
+import general.Interface.src.assets.MusicPlayer;
 import general.Interface.src.components.Window;
 import general.Interface.src.screens.QuestionScreen;
 
@@ -23,6 +24,9 @@ public class PrincipalScreen extends JDialog {
     private JButton volumeUpButton;
     private JButton generateButton;
     private JTextPane showGenerateMusic;
+    private JTextArea textArea1;
+
+    private final MusicPlayer musicPlayer = new MusicPlayer();
 
     public JPanel getPrincipal() {
         return principal;
@@ -36,7 +40,7 @@ public class PrincipalScreen extends JDialog {
 //            public void actionPerformed(ActionEvent e) {
 //                onOK();
 //
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             /*  public void windowClosing(WindowEvent e) {
             onCancel();
@@ -60,6 +64,12 @@ public class PrincipalScreen extends JDialog {
             public void actionPerformed(ActionEvent e) {
                String userContent =writeText.getText();
                 // titleTextField.setText(userContent); only para aparecer no TÍTULO
+            }
+        });
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                musicPlayer.convertText(writeText.getText());
             }
         });
     }
