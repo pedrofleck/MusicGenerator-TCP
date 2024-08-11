@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="general.Interface.src.screens.MainScreen">
-  <grid id="cbd77" binding="mainScreen" layout-manager="GridLayoutManager" row-count="6" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="cbd77" binding="mainScreen" layout-manager="GridLayoutManager" row-count="6" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
       <xy x="48" y="46" width="784" height="495"/>
@@ -15,12 +15,14 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="e3588" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e3588" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="2" column="1" row-span="2" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="2" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-986896"/>
+        </properties>
         <border type="none"/>
         <children>
           <grid id="9538f" binding="playPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -42,7 +44,7 @@
                   <hideActionText value="true"/>
                   <icon value="general/Interface/png/play.png"/>
                   <iconTextGap value="0"/>
-                  <margin top="5" left="5" bottom="5" right="5"/>
+                  <margin top="0" left="0" bottom="0" right="0"/>
                   <maximumSize width="30" height="30"/>
                   <minimumSize width="30" height="30"/>
                   <preferredSize width="30" height="30"/>
@@ -53,6 +55,7 @@
                 <constraints/>
                 <properties>
                   <icon value="general/Interface/png/pause.png"/>
+                  <iconTextGap value="0"/>
                   <preferredSize width="30" height="30"/>
                   <text value=""/>
                 </properties>
@@ -61,74 +64,87 @@
                 <constraints/>
                 <properties>
                   <icon value="general/Interface/png/stop.png"/>
+                  <iconTextGap value="0"/>
                   <preferredSize width="30" height="30"/>
                   <text value=""/>
                 </properties>
               </component>
-              <component id="85054" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
+              <component id="85054" class="javax.swing.JProgressBar" binding="progressBar">
                 <constraints/>
                 <properties/>
               </component>
             </children>
           </grid>
-          <hspacer id="c79da">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="54984">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <component id="7f4d" class="javax.swing.JTextArea" binding="insertMusic">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <editable value="true"/>
-              <lineWrap value="false"/>
-              <margin top="0" left="0" bottom="0" right="0"/>
-              <wrapStyleWord value="false"/>
-            </properties>
-          </component>
           <component id="c65ab" class="javax.swing.JButton" binding="generateButton">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-986896"/>
               <text value="GERAR"/>
             </properties>
           </component>
+          <hspacer id="c79da">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="d6d9e" class="javax.swing.JButton" binding="salvarButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-986896"/>
+              <text value="Salvar"/>
+            </properties>
+          </component>
+          <scrollpane id="4f07">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="7f4d" class="javax.swing.JTextArea" binding="insertMusic">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <editable value="true"/>
+                  <lineWrap value="true"/>
+                  <margin top="0" left="0" bottom="0" right="0"/>
+                  <text value=""/>
+                  <wrapStyleWord value="false"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
         </children>
       </grid>
       <hspacer id="5b11c">
         <constraints>
-          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="e7d27">
         <constraints>
-          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="14" height="270"/>
           </grid>
         </constraints>
       </hspacer>
       <hspacer id="cacc0">
         <constraints>
-          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="46bb2">
         <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="f445e">
         <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="35e69">
@@ -148,38 +164,50 @@
       </component>
       <component id="fc558" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe UI" size="16"/>
+          <font name="Segoe UI" size="20"/>
           <foreground color="-14145496"/>
           <text value="Gerador de Música"/>
         </properties>
       </component>
-      <component id="eed4" class="javax.swing.JButton" binding="button6" default-binding="true">
+      <component id="eed4" class="javax.swing.JButton" binding="lowerVolumeButton">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-986896"/>
           <text value="-"/>
         </properties>
       </component>
-      <component id="d99a6" class="javax.swing.JButton" binding="button7" default-binding="true">
+      <component id="d99a6" class="javax.swing.JButton" binding="raiseVolumeButton">
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-986896"/>
           <text value="+"/>
         </properties>
       </component>
       <component id="41bfc" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
         <constraints>
-          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
+          <background color="-1"/>
           <editable value="false"/>
+          <rows value="2"/>
+        </properties>
+      </component>
+      <component id="15418" class="javax.swing.JSlider" binding="volumeSlider">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-986896"/>
         </properties>
       </component>
     </children>

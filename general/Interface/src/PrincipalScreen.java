@@ -1,6 +1,6 @@
 package general.Interface.src;
 
-import general.Interface.src.assets.MusicPlayer;
+import general.Interface.src.assets.MusicPlayerOld;
 import general.Interface.src.components.Window;
 import general.Interface.src.screens.QuestionScreen;
 
@@ -26,7 +26,7 @@ public class PrincipalScreen extends JDialog {
     private JTextPane showGenerateMusic;
     private JTextArea textArea1;
 
-    private final MusicPlayer musicPlayer = new MusicPlayer();
+    private final MusicPlayerOld musicPlayerOld = new MusicPlayerOld();
 
     public JPanel getPrincipal() {
         return principal;
@@ -69,7 +69,7 @@ public class PrincipalScreen extends JDialog {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                musicPlayer.convertText(writeText.getText());
+                musicPlayerOld.convertText(writeText.getText());
             }
         });
     }

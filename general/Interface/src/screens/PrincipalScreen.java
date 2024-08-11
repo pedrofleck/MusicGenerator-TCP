@@ -1,6 +1,6 @@
 package general.Interface.src.screens;
 
-import general.Interface.src.assets.MusicPlayer;
+import general.Interface.src.assets.MusicPlayerOld;
 import general.Interface.src.components.ActionButton;
 import general.Interface.src.components.TextBox;
 import general.Interface.src.components.Window;
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class PrincipalScreen extends JPanel {
 
     private TextBox text;
-    private final MusicPlayer musicPlayer = new MusicPlayer();
+    private final MusicPlayerOld musicPlayerOld = new MusicPlayerOld();
 
     public PrincipalScreen(){
         this.config();
@@ -64,7 +64,7 @@ public class PrincipalScreen extends JPanel {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                musicPlayer.convertText(text.getText());
+                musicPlayerOld.convertText(text.getText());
             }
         });
         playerArea.add(btn);
