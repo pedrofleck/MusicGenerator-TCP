@@ -1,19 +1,17 @@
 package general.Interface.src.screens;
 
-import general.Interface.src.assets.MusicCommand;
-import general.Interface.src.assets.TextConverter;
 import general.Interface.src.components.Window;
-import general.Interface.src.assets.MusicPlayer;
+import general.Interface.src.assets.JFMusicPlayer;
+import general.Interface.src.assets.JFTextConverter;
+import general.Interface.src.assets.SaveToFile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.util.List;
+import org.jfugue.pattern.Pattern;
 
 public class MainScreen {
-
     private JPanel mainScreen;
     private JTextArea insertMusic;
     private JButton helpButton;
@@ -26,13 +24,15 @@ public class MainScreen {
     private JButton raiseVolumeButton;
     private JPanel mainPanel;
     private JPanel playPanel;
-    private JTextArea textArea1;
-    private JButton salvarButton;
+    private JTextArea notesTable;
+    private JButton saveButton;
     private JSlider volumeSlider;
 
-    private final TextConverter textConverter = new TextConverter();
-    private final MusicPlayer musicPlayer = new MusicPlayer();
-    private List<MusicCommand> musicCommands;
+    private final JFTextConverter textConverter = new JFTextConverter();
+    private final JFMusicPlayer musicPlayer = new JFMusicPlayer();
+    private final SaveToFile saveToFile = new SaveToFile();
+
+    private Pattern pattern; // Padrão usado pelo JFugue para reproduzir MIDI
 
     public MainScreen() {
         initializeComponents();
@@ -40,9 +40,8 @@ public class MainScreen {
     }
 
     private void initializeComponents() {
-        // Inicialização dos componentes e layout
-        insertMusic.addComponentListener(new ComponentAdapter() {
-        });
+        // Inicialização dos componentes
+
     }
 
     private void setupListeners() {
@@ -57,35 +56,28 @@ public class MainScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String insertedText = insertMusic.getText().trim();
-                musicCommands = textConverter.generateMusicCommands(insertMusic.getText());
+                pattern = textConverter.convertTextToMusic(insertedText);
+                musicPlayer.setPattern(pattern);
                 if (insertedText.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Insira algum texto para ser convertido."
                     );
                 } else {
-                    musicCommands = textConverter.generateMusicCommands(insertedText);
                     JOptionPane.showMessageDialog(null, "Texto convertido para música!");
                 }
+            }
+        });
+
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                saveToFile.savePatternToMidiFile(pattern);
             }
         });
 
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                musicPlayer.playCommands(musicCommands);
-//                if (musicCommands != null && !musicCommands.isEmpty()) {
-//                    musicPlayer.playCommands(musicCommands);
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Nenhum comando foi dado. Por favor, " +
-//                            "converta o texto primeiro.");
-//                }
-            }
-        });
-
-        pauseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO: não implementado, precisamos de um contador, isso inclui a barra de progresso.
-                //  Vai ser complicado :')
+                musicPlayer.play();
             }
         });
 
@@ -96,7 +88,6 @@ public class MainScreen {
             }
         });
     }
-
 
     public JPanel getMainPanel() {
         return mainScreen;

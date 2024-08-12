@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="general.Interface.src.screens.MainScreen">
-  <grid id="cbd77" binding="mainScreen" layout-manager="GridLayoutManager" row-count="6" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="cbd77" binding="mainScreen" layout-manager="GridLayoutManager" row-count="5" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
       <xy x="48" y="46" width="784" height="495"/>
@@ -45,17 +45,8 @@
                   <icon value="general/Interface/png/play.png"/>
                   <iconTextGap value="0"/>
                   <margin top="0" left="0" bottom="0" right="0"/>
-                  <maximumSize width="30" height="30"/>
-                  <minimumSize width="30" height="30"/>
-                  <preferredSize width="30" height="30"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="abfd0" class="javax.swing.JButton" binding="pauseButton" default-binding="true">
-                <constraints/>
-                <properties>
-                  <icon value="general/Interface/png/pause.png"/>
-                  <iconTextGap value="0"/>
+                  <maximumSize width="-1" height="-1"/>
+                  <minimumSize width="-1" height="-1"/>
                   <preferredSize width="30" height="30"/>
                   <text value=""/>
                 </properties>
@@ -63,6 +54,7 @@
               <component id="f1bef" class="javax.swing.JButton" binding="stopButton" default-binding="true">
                 <constraints/>
                 <properties>
+                  <background color="-986896"/>
                   <icon value="general/Interface/png/stop.png"/>
                   <iconTextGap value="0"/>
                   <preferredSize width="30" height="30"/>
@@ -89,15 +81,6 @@
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="d6d9e" class="javax.swing.JButton" binding="salvarButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-986896"/>
-              <text value="Salvar"/>
-            </properties>
-          </component>
           <scrollpane id="4f07">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -113,28 +96,35 @@
                   <lineWrap value="true"/>
                   <margin top="0" left="0" bottom="0" right="0"/>
                   <text value=""/>
+                  <toolTipText value=""/>
                   <wrapStyleWord value="false"/>
                 </properties>
               </component>
             </children>
           </scrollpane>
+          <component id="3b785" class="javax.swing.JButton" binding="saveButton">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-986896"/>
+              <text value="Salvar"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <hspacer id="5b11c">
-        <constraints>
-          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
       <hspacer id="e7d27">
         <constraints>
           <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="14" height="270"/>
+            <preferred-size width="0" height="270"/>
           </grid>
         </constraints>
       </hspacer>
       <hspacer id="cacc0">
         <constraints>
-          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="145" height="10"/>
+          </grid>
         </constraints>
       </hspacer>
       <hspacer id="46bb2">
@@ -190,18 +180,6 @@
           <text value="+"/>
         </properties>
       </component>
-      <component id="41bfc" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-        <constraints>
-          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <editable value="false"/>
-          <rows value="2"/>
-        </properties>
-      </component>
       <component id="15418" class="javax.swing.JSlider" binding="volumeSlider">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -210,6 +188,27 @@
           <background color="-986896"/>
         </properties>
       </component>
+      <scrollpane id="12d6d">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="1" use-parent-layout="false">
+            <preferred-size width="145" height="150"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
+        <border type="none"/>
+        <children>
+          <component id="7bdf5" class="javax.swing.JTextArea" binding="notesTable">
+            <constraints/>
+            <properties>
+              <editable value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>
