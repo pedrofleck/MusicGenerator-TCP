@@ -4,14 +4,20 @@ import org.jfugue.pattern.Pattern;
 import java.util.Random;
 
 public class JFTextConverter {
-    private int volume = 100;
-    private int octave = 4; // oitava padrão
-    private int bpm = 120; // BPM padrão TODO: acho que dá pra trabalhar com isso
+    private static int DEFAULT_VOLUME = 50;
+    private static int DEFAULT_OCTAVE = 4;
+    private static int DEFAULT_BPM = 120;
+    private int volume = DEFAULT_VOLUME;
+    private int octave = DEFAULT_OCTAVE; // oitava padrão
+    private int bpm = DEFAULT_BPM; // BPM padrão
     private String instrument = "Piano"; // instrumento padrão
 
     public Pattern convertTextToMusic(String text) {
         StringBuilder patternBuilder = new StringBuilder();
         Random randomNumber = new Random();
+        octave = DEFAULT_OCTAVE;
+
+        patternBuilder.append("T").append(DEFAULT_BPM).append(" "); // Inicia com BPM padrão
 
         for (int currentChar = 0; currentChar < text.length(); currentChar++) {
             char c = text.charAt(currentChar);
@@ -42,12 +48,14 @@ public class JFTextConverter {
                     break;
                 case '+':
                     volume *= 2;
-                    patternBuilder.append("V").append(volume).append(" ");
+                    patternBuilder.append(":CON(7, ").append(volume).append(") ");
                     break;
                 case '-':
-                    volume = 100; // volume default
-                    patternBuilder.append("V").append(volume).append(" ");
+                    volume = DEFAULT_VOLUME;
+                    patternBuilder.append(":CON(7, ").append(volume).append(") ");
                     break;
+                //case 'I': case 'i': case 'O': case 'o': case 'I': case 'i':
+
                 case 'R':
                     if (currentChar + 1 < text.length()) {
                         char nextChar = text.charAt(currentChar + 1);
@@ -63,17 +71,13 @@ public class JFTextConverter {
                     char randomNote = (char) ('A' + randomNumber.nextInt(7));
                     patternBuilder.append(randomNote).append(octave).append(" ");
                     break;
+                case '\n':
+                    patternBuilder.append("I[").append(instrument).append("] ");
+                    break;
                 case ';':
                     bpm = randomNumber.nextInt(120) + 60; // Valor aleatório entre 60 e 180
                     patternBuilder.append("T").append(bpm).append(" ");
                     break;
-                case 'N':
-                    if (currentChar + 1 < text.length() && text.charAt(currentChar + 1) == 'L') {
-                        patternBuilder.append("I[").append(instrument).append("] ");
-                        currentChar++;
-                    }
-                    break;
-
                 default:
                     patternBuilder.append("NOP ");
             }
