@@ -3,8 +3,8 @@ package general.Interface.src.assets;
 import org.jfugue.pattern.Pattern;
 
 import java.util.Random;
-
 public class JFTextConverter {
+    public String PatternText;
     private static final int DEFAULT_VOLUME = 50;
     private static final int MAX_VOLUME = 100;
     private static final int DEFAULT_OCTAVE = 4;
@@ -151,8 +151,9 @@ public class JFTextConverter {
         patternBuilder.append(" | ");
 
         // Converte o padrão para o formato JFugue
-        System.out.println(patternBuilder); // coloquei essa saída como teste, TODO: tirar no fim
-        return new Pattern(patternBuilder.toString());
+        PatternText = patternBuilder.toString();
+        System.out.println(PatternText); // coloquei essa saída como teste, TODO: tirar no fim
+        return new Pattern(PatternText);
     }
 
     boolean handleBPM(String text) {
