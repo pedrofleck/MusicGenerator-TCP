@@ -57,12 +57,15 @@ public class MainScreen {
             public void actionPerformed(ActionEvent e) {
                 String insertedText = insertMusic.getText().trim();
                 pattern = textConverter.convertTextToMusic(insertedText);
+                String patternText = pattern.toString();
                 musicPlayer.setPattern(pattern);
                 if (insertedText.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Insira algum texto para ser convertido."
                     );
                 } else {
-                    JOptionPane.showMessageDialog(null, "Texto convertido para música!");
+                    JOptionPane.showMessageDialog(null, "Texto convertido para música!" +
+                            "Clique em OK e depois no icone Play!");
+                    notesTable.setText(patternText);
                 }
             }
         });
