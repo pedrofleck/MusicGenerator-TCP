@@ -4,7 +4,7 @@ import general.Interface.src.components.Window;
 import general.Interface.src.assets.JFMusicPlayer;
 import general.Interface.src.assets.JFTextConverter;
 import general.Interface.src.assets.SaveToFile;
-
+import general.Interface.src.assets.NotesMusicForUser;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -64,8 +64,10 @@ public class MainScreen {
                     JOptionPane.showMessageDialog(null, "Insira algum texto para ser convertido."
                     );
                 } else {
-                    JOptionPane.showMessageDialog(null, "Texto convertido para música!");
-                    notesTable.setText(patternText);
+                    JOptionPane.showMessageDialog(null, "Texto convertido para música!Clique Ok e depois no Icone Play.");
+                    NotesMusicForUser notesMusicForUser = new NotesMusicForUser();
+                    StringBuilder stringNova = notesMusicForUser.stringText(patternText);
+                    notesTable.setText(stringNova.toString());
                 }
             }
         });
