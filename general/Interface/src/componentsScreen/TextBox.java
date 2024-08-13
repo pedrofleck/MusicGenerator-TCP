@@ -1,4 +1,4 @@
-package general.Interface.src.components;
+package general.Interface.src.componentsScreen;
 
 import javax.swing.*;
 import java.awt.*;

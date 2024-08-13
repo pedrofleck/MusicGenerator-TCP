@@ -1,9 +1,9 @@
-package general.Interface.src.assets;
+package general.Interface.src.principalClasses;
 
 public class NotesMusicForUser {
 
     public StringBuilder stringText (String TextMusic) {
-        //tratando as mensagens recebidas
+        //show the messages receive
         StringBuilder newText = new StringBuilder();
         for (int currentChar = 0; currentChar < TextMusic.length(); currentChar++) {
             char c = TextMusic.charAt(currentChar);
@@ -29,7 +29,8 @@ public class NotesMusicForUser {
                 case 'G': case 'g':
                     newText.append("Sol ");
                     break;
-                default: newText.append(c);
+                default :
+                    break;
             }
         }
         return newText;

@@ -1,7 +1,7 @@
-package general.Interface.src.assets;
+package general.Interface.src.principalClasses;
 
-import general.Interface.src.components.Instruction;
-import general.Interface.src.components.Instrument;
+import general.Interface.src.componentsScreen.Instruction;
+import general.Interface.src.componentsScreen.Instrument;
 
 import java.util.ArrayList;
 import java.util.List;

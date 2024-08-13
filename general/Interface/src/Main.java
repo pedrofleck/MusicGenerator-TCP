@@ -16,7 +16,7 @@ public static void main(String[] args) {
 
     // Cria e configura o frame principal
     JFrame frame = new JFrame("Music Generator");
-    ImageIcon icon = new ImageIcon(Main.class.getResource("/general/Interface/png/icon.png"));
+    ImageIcon icon = new ImageIcon(Main.class.getResource("/general/Interface/imagesPng/icon.png"));
     frame.setIconImage(icon.getImage());
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setContentPane(createMainScreenPanel());

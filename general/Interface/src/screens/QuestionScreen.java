@@ -1,10 +1,9 @@
 package general.Interface.src.screens;
 
-import general.Interface.src.assets.InstructionsList;
-import general.Interface.src.components.ListBox;
-import general.Interface.src.components.TextLabel;
-import general.Interface.src.components.WindowTitle;
-import general.Interface.src.assets.NotesMusicForUser;
+import general.Interface.src.principalClasses.InstructionsList;
+import general.Interface.src.componentsScreen.ListBox;
+import general.Interface.src.componentsScreen.TextLabel;
+import general.Interface.src.componentsScreen.WindowTitle;
 
 
 import javax.swing.*;

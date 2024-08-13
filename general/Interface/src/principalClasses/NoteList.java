@@ -1,4 +1,4 @@
-package general.Interface.src.assets;
+package general.Interface.src.principalClasses;
 
 import java.util.HashMap;
 import java.util.Map;

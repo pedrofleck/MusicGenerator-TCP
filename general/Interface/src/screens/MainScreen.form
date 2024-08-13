@@ -42,7 +42,7 @@
                   <background color="-986896"/>
                   <foreground color="-394241"/>
                   <hideActionText value="true"/>
-                  <icon value="general/Interface/png/new_play.png"/>
+                  <icon value="general/Interface/imagesPng/new_play.png"/>
                   <iconTextGap value="0"/>
                   <margin top="0" left="0" bottom="0" right="0"/>
                   <maximumSize width="-1" height="-1"/>
@@ -55,7 +55,7 @@
                 <constraints/>
                 <properties>
                   <background color="-986896"/>
-                  <icon value="general/Interface/png/new_stop.png"/>
+                  <icon value="general/Interface/imagesPng/new_stop.png"/>
                   <iconTextGap value="0"/>
                   <preferredSize width="30" height="30"/>
                   <text value=""/>
@@ -69,7 +69,7 @@
                 <properties>
                   <background color="-986896"/>
                   <horizontalTextPosition value="0"/>
-                  <icon value="general/Interface/png/minus.png"/>
+                  <icon value="general/Interface/imagesPng/minus.png"/>
                   <maximumSize width="-1" height="-1"/>
                   <minimumSize width="-1" height="-1"/>
                   <preferredSize width="24" height="24"/>
@@ -90,7 +90,7 @@
                 <constraints/>
                 <properties>
                   <background color="-986896"/>
-                  <icon value="general/Interface/png/plus.png"/>
+                  <icon value="general/Interface/imagesPng/plus.png"/>
                   <preferredSize width="24" height="24"/>
                   <text value=""/>
                 </properties>
@@ -103,7 +103,7 @@
             </constraints>
             <properties>
               <background color="-986896"/>
-              <icon value="general/Interface/png/generate.png"/>
+              <icon value="general/Interface/imagesPng/generate.png"/>
               <text value="Gerar"/>
             </properties>
           </component>
@@ -140,7 +140,7 @@
             <properties>
               <background color="-986896"/>
               <hideActionText value="false"/>
-              <icon value="general/Interface/png/new_save.png"/>
+              <icon value="general/Interface/imagesPng/new_save.png"/>
               <text value="Salvar para MIDI"/>
             </properties>
           </component>
@@ -174,7 +174,7 @@
         <properties>
           <background color="-986896"/>
           <font size="14"/>
-          <icon value="general/Interface/png/information.png"/>
+          <icon value="general/Interface/imagesPng/information.png"/>
           <text value="Ajuda"/>
         </properties>
       </component>

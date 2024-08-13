@@ -1,10 +1,10 @@
 package general.Interface.src.screens;
 
-import general.Interface.src.components.Window;
-import general.Interface.src.assets.JFMusicPlayer;
-import general.Interface.src.assets.JFTextConverter;
-import general.Interface.src.assets.SaveToFile;
-import general.Interface.src.assets.NotesMusicForUser;
+import general.Interface.src.componentsScreen.Window;
+import general.Interface.src.principalClasses.JFMusicPlayer;
+import general.Interface.src.principalClasses.JFTextConvert;
+import general.Interface.src.principalClasses.SaveToFile;
+import general.Interface.src.principalClasses.NotesMusicForUser;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -30,7 +30,7 @@ public class MainScreen {
     private JSlider volumeSlider;
     private JLabel informationTextArea;
 
-    private final JFTextConverter textConverter = new JFTextConverter();
+    private final JFTextConvert textConverter = new JFTextConvert();
     private final JFMusicPlayer musicPlayer = new JFMusicPlayer();
     private final SaveToFile saveToFile = new SaveToFile();
 
@@ -76,7 +76,7 @@ public class MainScreen {
                     updateInformationTextArea("Texto convertido para música!", SUCCESS_COLOR);
                     NotesMusicForUser notesMusicForUser = new NotesMusicForUser();
                     StringBuilder stringNova = notesMusicForUser.stringText(patternText);
-                    notesTable.setText(stringNova.toString());                }
+                    notesTable.setText( stringNova.toString());                }
             }
         });
 

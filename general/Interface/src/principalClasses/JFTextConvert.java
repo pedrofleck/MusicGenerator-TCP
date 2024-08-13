@@ -1,10 +1,10 @@
-package general.Interface.src.assets;
+package general.Interface.src.principalClasses;
 
 import org.jfugue.pattern.Pattern;
 
 import java.util.Random;
 
-public class JFTextConverter {
+public class JFTextConvert {
     private int volume;
     private static final int DEFAULT_VOLUME = 50;
     private static final int MAX_VOLUME = 100;
