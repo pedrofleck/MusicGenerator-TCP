@@ -6,6 +6,8 @@ import general.Interface.src.assets.JFTextConverter;
 import general.Interface.src.assets.SaveToFile;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +21,6 @@ public class MainScreen {
     private JButton playButton;
     private JButton pauseButton;
     private JButton stopButton;
-    private JProgressBar progressBar;
     private JButton lowerVolumeButton;
     private JButton raiseVolumeButton;
     private JPanel mainPanel;
@@ -57,12 +58,14 @@ public class MainScreen {
             public void actionPerformed(ActionEvent e) {
                 String insertedText = insertMusic.getText().trim();
                 pattern = textConverter.convertTextToMusic(insertedText);
+                String patternText = pattern.toString();
                 musicPlayer.setPattern(pattern);
                 if (insertedText.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Insira algum texto para ser convertido."
                     );
                 } else {
                     JOptionPane.showMessageDialog(null, "Texto convertido para música!");
+                    notesTable.setText(patternText);
                 }
             }
         });
@@ -85,6 +88,13 @@ public class MainScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 musicPlayer.stop();
+            }
+        });
+
+        volumeSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+
             }
         });
     }
