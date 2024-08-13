@@ -5,17 +5,20 @@ import org.jfugue.pattern.PatternProducer;
 import org.jfugue.midi.MidiFileManager;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.IOException;
 
 public class SaveToFile {
 
-    public void savePatternToMidiFile(Pattern pattern) {
+    public String savePatternToMidiFile(Pattern pattern) {
+        String filePlace = null;
+
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Salvar Arquivo MIDI");
 
         // Define o filtro para mostrar apenas arquivos MIDI
-        fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Arquivos MIDI", "mid"));
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Arquivos MIDI", "mid"));
 
         int userSelection = fileChooser.showSaveDialog(null);
 
@@ -31,12 +34,12 @@ public class SaveToFile {
 
             try {
                 MidiFileManager.savePatternToMidi(pattern, fileToSave); // efetivamente gera o arquivo
-                JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso em " + fileToSave.getAbsolutePath());
+                filePlace = fileToSave.getAbsolutePath();
             } catch (IOException e) {
                 e.printStackTrace();
                 System.err.println("Erro ao salvar o arquivo MIDI.");
-                JOptionPane.showMessageDialog(null, "Erro ao salvar arquivo.");
             }
         }
+        return filePlace;
     }
 }

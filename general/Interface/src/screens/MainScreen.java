@@ -5,6 +5,7 @@ import general.Interface.src.assets.JFMusicPlayer;
 import general.Interface.src.assets.JFTextConverter;
 import general.Interface.src.assets.SaveToFile;
 import general.Interface.src.assets.NotesMusicForUser;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -19,7 +20,6 @@ public class MainScreen {
     private JButton helpButton;
     private JButton generateButton;
     private JButton playButton;
-    private JButton pauseButton;
     private JButton stopButton;
     private JButton lowerVolumeButton;
     private JButton raiseVolumeButton;
@@ -28,10 +28,19 @@ public class MainScreen {
     private JTextArea notesTable;
     private JButton saveButton;
     private JSlider volumeSlider;
+    private JLabel informationTextArea;
 
     private final JFTextConverter textConverter = new JFTextConverter();
     private final JFMusicPlayer musicPlayer = new JFMusicPlayer();
     private final SaveToFile saveToFile = new SaveToFile();
+
+    private static final int MIN_VOLUME = 0;
+    private static final int MAX_VOLUME = 100;
+    private static final int VOLUME_DEFAULT_STEP = 10;
+    private static final Color SUCCESS_COLOR = new Color(0, 124, 8);
+    private static final Color ATTENTION_COLOR = new Color(189, 148, 0);
+    private static final Color ERROR_COLOR = new Color(189, 0, 16);
+
 
     private Pattern pattern; // Padrão usado pelo JFugue para reproduzir MIDI
 
@@ -46,10 +55,11 @@ public class MainScreen {
     }
 
     private void setupListeners() {
+
         helpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Window(new QuestionScreen(), new Color(0xd9d9d9), "Music Generator - Ajuda");
+                new Window(new QuestionScreen(), new Color(0xd9d9d9), "Ajuda");
             }
         });
 
@@ -61,21 +71,24 @@ public class MainScreen {
                 String patternText = pattern.toString();
                 musicPlayer.setPattern(pattern);
                 if (insertedText.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Insira algum texto para ser convertido."
-                    );
+                    updateInformationTextArea("Insira algum texto para ser convertido.", ATTENTION_COLOR);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Texto convertido para música!Clique Ok e depois no Icone Play.");
+                    updateInformationTextArea("Texto convertido para música!", SUCCESS_COLOR);
                     NotesMusicForUser notesMusicForUser = new NotesMusicForUser();
                     StringBuilder stringNova = notesMusicForUser.stringText(patternText);
-                    notesTable.setText(stringNova.toString());
-                }
+                    notesTable.setText(stringNova.toString());                }
             }
         });
 
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveToFile.savePatternToMidiFile(pattern);
+                String filePlace = saveToFile.savePatternToMidiFile(pattern);
+                if (filePlace != null)
+                    updateInformationTextArea("Arquivo salvo com sucesso em " + filePlace, SUCCESS_COLOR);
+                else
+                    updateInformationTextArea("Erro ao salvar o arquivo." + filePlace, ERROR_COLOR);
+
             }
         });
 
@@ -96,9 +109,33 @@ public class MainScreen {
         volumeSlider.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-
+                int volume = volumeSlider.getValue();
+                textConverter.updateVolume(volume);
             }
         });
+        lowerVolumeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int currentVolume = volumeSlider.getValue();
+                int newVolume = Math.max(currentVolume - VOLUME_DEFAULT_STEP, MIN_VOLUME);
+                volumeSlider.setValue(newVolume);
+                textConverter.updateVolume(newVolume);
+            }
+        });
+        raiseVolumeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int currentVolume = volumeSlider.getValue();
+                int newVolume = Math.min(currentVolume + VOLUME_DEFAULT_STEP, MAX_VOLUME);
+                volumeSlider.setValue(newVolume);
+                textConverter.updateVolume(newVolume);
+            }
+        });
+    }
+
+    private void updateInformationTextArea (String information, Color color) {
+        informationTextArea.setText(information);
+        informationTextArea.setForeground(color);
     }
 
     public JPanel getMainPanel() {

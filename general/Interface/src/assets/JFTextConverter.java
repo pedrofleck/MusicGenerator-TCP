@@ -3,15 +3,21 @@ package general.Interface.src.assets;
 import org.jfugue.pattern.Pattern;
 
 import java.util.Random;
+
 public class JFTextConverter {
-    public String PatternText;
+    private int volume;
     private static final int DEFAULT_VOLUME = 50;
     private static final int MAX_VOLUME = 100;
     private static final int DEFAULT_OCTAVE = 4;
     private static final int DEFAULT_BPM = 120;
     private static final int DEFAULT_BPM_RAISE = 80;
-    private int volume = DEFAULT_VOLUME;
     private static final char[] mainNotes = {'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g'};
+    public String PatternText;
+
+
+    public void updateVolume(int newVolume) {
+        this.volume = Math.min(Math.max(newVolume, 0), MAX_VOLUME); // Garante que o volume esteja dentro do intervalo
+    }
 
     public Pattern convertTextToMusic(String text) {
         StringBuilder patternBuilder = new StringBuilder();
@@ -19,13 +25,12 @@ public class JFTextConverter {
         boolean inInstrumentBlock = false;
         StringBuilder instrumentBuilder = new StringBuilder();
 
-
         int octave = DEFAULT_OCTAVE; // oitava padrão
         int bpm = DEFAULT_BPM; // BPM padrão
 
         patternBuilder.append("T").append(bpm).append(" "); // Inicia com BPM padrão
         patternBuilder.append("I[Piano] ");
-        patternBuilder.append(":CON(7, ").append(DEFAULT_VOLUME).append(") ");
+        patternBuilder.append(":CON(7, ").append(volume).append(") "); // Usa o volume configurado
 
         for (int currentChar = 0; currentChar < text.length(); currentChar++) {
             char c = text.charAt(currentChar);
@@ -50,7 +55,6 @@ public class JFTextConverter {
                         break;
                     case 'B':
                         if (currentChar + 1 < text.length()) {
-//                            nextChar = text.charAt(currentChar + 1);
                             if (handleBPM(text.substring(currentChar))) {
                                 bpm += DEFAULT_BPM_RAISE;
                                 patternBuilder.append("T").append(bpm).append(" ");
