@@ -12,7 +12,7 @@ public class NotesMusicForUser {
         return newText;
     }
 
-   private StringBuilder StringText (String TextMusic) {
+    private StringBuilder StringText (String TextMusic) {
         //tratando as mensagens recebidas
         for (int currentChar = 0; currentChar < TextMusic.length(); currentChar++) {
             char c = TextMusic.charAt(currentChar);
@@ -44,5 +44,5 @@ public class NotesMusicForUser {
         return NewText;
     }
 
-    }
+}
 
