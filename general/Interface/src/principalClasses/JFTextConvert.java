@@ -156,7 +156,6 @@ public class JFTextConvert {
 
         // Converte o padrão para o formato JFugue
         PatternText = patternBuilder.toString();
-        System.out.println(PatternText); // coloquei essa saída como teste, TODO: tirar no fim
         return new Pattern(PatternText);
     }
 
